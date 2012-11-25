@@ -18,6 +18,7 @@
     {
         self.imageTeaserUrl = dictionaryWithData[@"image_teaser_url"];
         self.title = dictionaryWithData[@"title"];
+        self.url = dictionaryWithData[@"url"];
     }
     
     return self;

@@ -31,11 +31,14 @@
     {
         downloadingLock = YES;
         
+        [self showIndicator];
+        
         [[DribbbleAPI sharedClient]
          getPath:@"shots/popular"
          parameters:@{@"page" : @(page)}
          success:^(AFHTTPRequestOperation *operation, id responseObject)
          {
+             [self hideIndicator];
              downloadingLock = NO;
              if (self.shots == nil)
                  self.shots = [NSMutableArray array];
@@ -49,10 +52,10 @@
                   }
              } completion:nil];
              
-             //[self.collectionView reloadData];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)
          {
+             [self hideIndicator];
              downloadingLock = NO;
              UIAlertView *alert = [[UIAlertView alloc]
                                    initWithTitle:@"Network problem"
@@ -90,12 +93,58 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    if (self.webViewController == nil)
+    {
+        self.webViewController = [[WebViewController alloc] init];
+        self.webViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        self.webViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    }
+    
+    [self presentViewController:self.webViewController animated:YES completion:nil];
+    
+    [self.webViewController openURL:[(Shot*)self.shots[indexPath.row] url]];
+}
+
+#pragma mark - UICollectionView scroll delegate
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView.contentOffset.y > (scrollView.contentSize.height - self.view.frame.size.height))
     {
         [self parseDribbleDataPage:currentPage];
     }
+}
+
+#pragma mark - Loading indicator animations
+
+-(void)showIndicator
+{
+    self.loadingView.frame = (CGRect){270, -46, 33, 43};
+    [UIView
+     animateWithDuration:0.5f
+     delay:0.0f
+     options:UIViewAnimationCurveEaseInOut
+     animations:^{
+         self.loadingView.frame = (CGRect){270, 0, 33, 43};
+     }
+     completion:nil];
+}
+
+-(void)hideIndicator
+{
+    //self.loadingView.frame = (CGRect){277, -46, 33, 43};
+    [UIView
+     animateWithDuration:0.5f
+     delay:0.0f
+     options:UIViewAnimationCurveEaseInOut
+     animations:^{
+         self.loadingView.frame = (CGRect){270, -46, 33, 43};
+     }
+     completion:nil];
 }
 
 @end

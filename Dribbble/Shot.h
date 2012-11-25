@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *imageTeaserUrl;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *url;
 
 -(id)initWithDictionary:(NSDictionary *)dictionaryWithData;
 

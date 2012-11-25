@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 {
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSMutableArray *shots;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UINib *shotNib;
+@property (nonatomic, strong) WebViewController *webViewController;
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
 
 -(void)parseDribbleDataPage:(int)page;
 

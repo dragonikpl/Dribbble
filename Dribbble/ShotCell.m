@@ -23,6 +23,8 @@
         }
     }
     
+    self.selectedBackgroundView = self.bgr;
+    
     return self;
 }
 

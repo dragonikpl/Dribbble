@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIView *bgr;
 
 - (void)reloadCellWithModel:(Shot*)model;
 
