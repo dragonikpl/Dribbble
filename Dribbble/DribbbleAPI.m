@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 iOSCook. All rights reserved.
 //
 
-#import "DribbleAPI.h"
+#import "DribbbleAPI.h"
 #import "AFJSONRequestOperation.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
-@implementation DribbleAPI
+@implementation DribbbleAPI
 
-static DribbleAPI *sharedInstance = nil;
+static DribbbleAPI *sharedInstance = nil;
 
-+(DribbleAPI*)sharedClient
++(DribbbleAPI*)sharedClient
 {
     if (nil != sharedInstance) {
         return sharedInstance;
@@ -22,7 +22,7 @@ static DribbleAPI *sharedInstance = nil;
     
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        sharedInstance = [[DribbleAPI alloc] init];
+        sharedInstance = [[DribbbleAPI alloc] init];
     });
     
     return sharedInstance;

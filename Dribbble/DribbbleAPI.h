@@ -8,8 +8,8 @@
 
 #import "AFHTTPClient.h"
 
-@interface DribbleAPI : AFHTTPClient
+@interface DribbbleAPI : AFHTTPClient
 
-+(DribbleAPI*)sharedClient;
++(DribbbleAPI*)sharedClient;
 
 @end

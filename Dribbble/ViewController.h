@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
+{
+    int currentPage;
+    BOOL downloadingLock;
+}
+
+@property (nonatomic, strong) NSMutableArray *shots;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UINib *shotNib;
+
+-(void)parseDribbleDataPage:(int)page;
 
 @end

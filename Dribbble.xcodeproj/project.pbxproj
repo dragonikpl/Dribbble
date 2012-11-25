@@ -29,7 +29,10 @@
 		881FDB4A16623BE5000860DD /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 881FDB4116623BE4000860DD /* UIImageView+AFNetworking.m */; };
 		881FDB4C16623BF9000860DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FDB4B16623BF9000860DD /* SystemConfiguration.framework */; };
 		881FDB4E16623C00000860DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FDB4D16623C00000860DD /* MobileCoreServices.framework */; };
-		881FDB5216623C6D000860DD /* DribbleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 881FDB5116623C6D000860DD /* DribbleAPI.m */; };
+		881FDB5216623C6D000860DD /* DribbbleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 881FDB5116623C6D000860DD /* DribbbleAPI.m */; };
+		881FDB5616623F0A000860DD /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 881FDB5516623F0A000860DD /* Shot.m */; };
+		881FDB5916626859000860DD /* ShotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 881FDB5816626859000860DD /* ShotCell.m */; };
+		881FDB5B16626868000860DD /* ShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881FDB5A16626868000860DD /* ShotCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +73,13 @@
 		881FDB4116623BE4000860DD /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		881FDB4B16623BF9000860DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		881FDB4D16623C00000860DD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		881FDB5016623C6D000860DD /* DribbleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbleAPI.h; sourceTree = "<group>"; };
-		881FDB5116623C6D000860DD /* DribbleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbleAPI.m; sourceTree = "<group>"; };
+		881FDB5016623C6D000860DD /* DribbbleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleAPI.h; sourceTree = "<group>"; };
+		881FDB5116623C6D000860DD /* DribbbleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleAPI.m; sourceTree = "<group>"; };
+		881FDB5416623F0A000860DD /* Shot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shot.h; sourceTree = "<group>"; };
+		881FDB5516623F0A000860DD /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
+		881FDB5716626859000860DD /* ShotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotCell.h; sourceTree = "<group>"; };
+		881FDB5816626859000860DD /* ShotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotCell.m; sourceTree = "<group>"; };
+		881FDB5A16626868000860DD /* ShotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShotCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,10 @@
 				881FDB2216623B89000860DD /* ViewController.h */,
 				881FDB2316623B89000860DD /* ViewController.m */,
 				881FDB2516623B89000860DD /* ViewController.xib */,
+				881FDB5716626859000860DD /* ShotCell.h */,
+				881FDB5816626859000860DD /* ShotCell.m */,
+				881FDB5A16626868000860DD /* ShotCell.xib */,
+				881FDB5316623EF4000860DD /* Models */,
 				881FDB4F16623C48000860DD /* DribbleAPI */,
 				881FDB2D16623BC4000860DD /* External */,
 				881FDB1116623B89000860DD /* Supporting Files */,
@@ -186,10 +198,19 @@
 		881FDB4F16623C48000860DD /* DribbleAPI */ = {
 			isa = PBXGroup;
 			children = (
-				881FDB5016623C6D000860DD /* DribbleAPI.h */,
-				881FDB5116623C6D000860DD /* DribbleAPI.m */,
+				881FDB5016623C6D000860DD /* DribbbleAPI.h */,
+				881FDB5116623C6D000860DD /* DribbbleAPI.m */,
 			);
 			name = DribbleAPI;
+			sourceTree = "<group>";
+		};
+		881FDB5316623EF4000860DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				881FDB5416623F0A000860DD /* Shot.h */,
+				881FDB5516623F0A000860DD /* Shot.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +269,7 @@
 				881FDB1F16623B89000860DD /* Default@2x.png in Resources */,
 				881FDB2116623B89000860DD /* Default-568h@2x.png in Resources */,
 				881FDB2716623B89000860DD /* ViewController.xib in Resources */,
+				881FDB5B16626868000860DD /* ShotCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +292,9 @@
 				881FDB4816623BE5000860DD /* AFURLConnectionOperation.m in Sources */,
 				881FDB4916623BE5000860DD /* AFXMLRequestOperation.m in Sources */,
 				881FDB4A16623BE5000860DD /* UIImageView+AFNetworking.m in Sources */,
-				881FDB5216623C6D000860DD /* DribbleAPI.m in Sources */,
+				881FDB5216623C6D000860DD /* DribbbleAPI.m in Sources */,
+				881FDB5616623F0A000860DD /* Shot.m in Sources */,
+				881FDB5916626859000860DD /* ShotCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
